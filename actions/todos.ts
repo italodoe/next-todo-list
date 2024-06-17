@@ -1,6 +1,6 @@
 "use server";
 
-import { dbAddTodo, dbToggleDone } from "@/lib/todos";
+import { dbAddTodo, dbDeleteTodo, dbToggleDone } from "@/lib/todos";
 import { revalidatePath } from "next/cache";
 
 export async function actionAddTodo(formData: FormData) {
@@ -13,5 +13,10 @@ export async function actionAddTodo(formData: FormData) {
 
 export async function actionToggleTodoDone(id: number) {
   await dbToggleDone(id);
+  revalidatePath("/");
+}
+
+export async function actionDeleteTodo(id: number) {
+  await dbDeleteTodo(id);
   revalidatePath("/");
 }
