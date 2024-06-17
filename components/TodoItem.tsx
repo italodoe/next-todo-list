@@ -5,7 +5,7 @@ import { Todo } from "@/lib/todos";
 export default function TodoItem({ todo }: { todo: Todo }) {
   return (
     <li
-      className="hover:bg-slate-600 px-4 py-1 cursor-pointer rounded-full flex flex-row gap-2 justify-between items-center hover:text-zinc-100 group"
+      className="min-w-60 hover:bg-slate-600 px-4 py-1 cursor-pointer rounded-full flex flex-row gap-2 justify-between items-center hover:text-zinc-100 group"
       key={todo.id}
       onClick={() => actionToggleTodoDone(todo.id)}
     >

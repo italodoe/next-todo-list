@@ -13,7 +13,7 @@ export default async function Home() {
     <main className="flex flex-col flex-nowrap items-center pt-11">
       <h1> TODO LIST </h1>
        <TodoForm></TodoForm>
-      <ul className="max-w-lg">
+      <ul className="max-w-lg min-w-lg" >
         {todos.map((todo) => (
            <TodoItem key={todo.id} todo={todo}></TodoItem>
         ))}
