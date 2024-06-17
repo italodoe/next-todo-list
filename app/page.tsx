@@ -3,6 +3,8 @@ import Image from "next/image";
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
 export const dynamic = "force-dynamic";
+// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate
+export const revalidate = 0;
 
 export default async function Home() {
   const todos = await dbGetTodos();
