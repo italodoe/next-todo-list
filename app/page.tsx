@@ -1,6 +1,9 @@
 import { dbGetTodos } from "@/lib/todos";
 import Image from "next/image";
 
+// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const todos = await dbGetTodos();
   return (
