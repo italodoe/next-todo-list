@@ -10,7 +10,7 @@ export default async function Home() {
         <input
           type="text"
           name="What"
-          className="border border-black p-1 mr-2 rounded"
+          className="border border-black p-1 mr-2 rounded text-zinc-900 font-semibold"
         ></input>
         <button>Add</button>
       </form>
