@@ -1,5 +1,6 @@
 import { Row } from "@libsql/client";
 import { db } from "./db";
+import "server-only";
 
 const row2Todo = (row: Row) => ({
   id: row.id as number,
@@ -12,4 +13,19 @@ export type Todo = ReturnType<typeof row2Todo>;
 export const dbGetTodos = async () => {
   const { rows } = await db.execute("select * from todos");
   return rows.map(row2Todo);
+};
+
+export const dbAddTodo = async (what: string) => {
+  await db.execute({
+    sql: "insert into todos (what) values (?)",
+    args: [what],
+  });
+  //   return row2Todo(rows[0]);
+};
+
+export const dbToggleDone = async (id: number) => {
+  await db.execute({
+    sql: "update todos set done = not done where id = ?",
+    args: [id],
+  });
 };

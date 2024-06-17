@@ -1,6 +1,7 @@
+import TodoForm from "@/components/TodoForm";
+import TodoItem from "@/components/TodoItem";
 import { dbGetTodos } from "@/lib/todos";
-import Image from "next/image";
-
+ 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
 export const dynamic = "force-dynamic";
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate
@@ -11,17 +12,10 @@ export default async function Home() {
   return (
     <main className="flex flex-col flex-nowrap items-center pt-11">
       <h1> TODO LIST </h1>
-      <form className="p-3 ">
-        <input
-          type="text"
-          name="What"
-          className="border border-black p-1 mr-2 rounded text-zinc-900 font-semibold"
-        ></input>
-        <button>Add</button>
-      </form>
-      <ul>
+       <TodoForm></TodoForm>
+      <ul className="max-w-lg">
         {todos.map((todo) => (
-          <li key={todo.id}> {todo.what}</li>
+           <TodoItem key={todo.id} todo={todo}></TodoItem>
         ))}
       </ul>
     </main>
